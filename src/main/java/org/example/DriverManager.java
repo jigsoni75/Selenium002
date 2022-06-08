@@ -9,6 +9,8 @@ import java.time.Duration;
 
 public class DriverManager extends Utils {
 
+
+
     String browserName = "Chrome";
 
     public  void openBrowser() {
@@ -37,7 +39,7 @@ public class DriverManager extends Utils {
     }
 
     public void closeBrowser() {
-        driver.close();
+       //driver.quit();
 
     }
 }

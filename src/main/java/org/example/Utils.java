@@ -135,11 +135,8 @@ public class Utils extends BasePage {
 
     }
 
-    private void assertEquals() {
-    }
 
-
-    void driverWaitUntilVisibilityOfAllElementsLocatedBy(int time, By by) {
+    public void driverWaitUntilVisibilityOfAllElementsLocatedBy(int time, By by) {
 
     }
 }
