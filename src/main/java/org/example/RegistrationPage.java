@@ -60,7 +60,7 @@ public class RegistrationPage extends Utils {
         // driver.findElement(By.id("Email")).sendKeys("Jigar75@gmail.com");
         // sendKeys(_emailAddress, loadProp.getProperty("jigar75" + randomDate() + "@gmail.com"));
 
-        sendKeys(_emailAddress, "jigar75" + randomDate() + "@gmail.com");
+        sendKeys(_emailAddress, "jigar75"+randomDate()+"@yahoo.com");
 
 
         //Enter your password

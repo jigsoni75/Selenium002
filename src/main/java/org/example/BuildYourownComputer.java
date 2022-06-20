@@ -19,7 +19,7 @@ public class BuildYourownComputer extends Utils {
 
     private  By _totalCommander = By.xpath("//button[@id=\"add-to-cart-button-1\"]");
 
-    private  By _buildAddToCart = By.xpath("//span[@class=\"cart-label\"]");
+    private  By _buildAddToCart = By.xpath("//*[@id=\"add-to-cart-button-1\"]");
 
 
 public void buildComputer(){

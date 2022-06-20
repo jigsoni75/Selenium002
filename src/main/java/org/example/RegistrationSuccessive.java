@@ -15,7 +15,7 @@ private  By _actualMessage = By.className("result");
         String expectedMessage = "Your registration completed";
         String actualMessage = driver.findElement(_actualMessage).getText();
 
-        //Assert.assertEquals(expectedMessage, actualMessage, "Your registration is NOT successful");
+        Assert.assertEquals(actualMessage,expectedMessage,"Your registration is NOT successful");
 
     }
 

@@ -1,6 +1,5 @@
 package org.example;
 
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.openqa.selenium.edge.EdgeDriver;
@@ -18,11 +17,11 @@ public class DriverManager extends Utils {
     public final String USERNAME = loadProp.getProperty("bsUsername");
     public final String ACCESS_KEY = loadProp.getProperty("bsAccessKey");
     public final String BrowseStackURL = "https://" + USERNAME + ":" + ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-    boolean cloud = Boolean.parseBoolean(System.getProperty("cloud"));
+
+    boolean cloud = false;
 
     String browserName = "Chrome";
     DesiredCapabilities caps = new DesiredCapabilities();
-
 
 
     public void openBrowser() {
@@ -59,7 +58,7 @@ public class DriverManager extends Utils {
             }
 
         } else {
-            System.out.println("Running Locally.......................");
+            System.out.println("Running Locally in the computer ........");
 
             if (browserName.equalsIgnoreCase("Chrome")) {
                 System.setProperty("webdriver.chrome.driver", "src/test/java/Drivers/chromedriver.exe");
@@ -67,7 +66,7 @@ public class DriverManager extends Utils {
                 driver = new ChromeDriver();
             } else if
             (browserName.equalsIgnoreCase("firefox")) {
-                System.setProperty("webdriver.gecko.driver", "Drivers/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "src/test/java/Drivers/geckodriver.exe");
                 //open firefox
                 driver = new FirefoxDriver();
             } else if
@@ -82,7 +81,6 @@ public class DriverManager extends Utils {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demo.nopcommerce.com");
-
 
     }
 
