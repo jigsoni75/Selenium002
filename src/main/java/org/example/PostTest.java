@@ -1,7 +1,6 @@
 package org.example;
 
 import io.restassured.RestAssured;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -11,7 +10,8 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class PostTest1 {
+public class PostTest {
+
 
 
     @BeforeClass

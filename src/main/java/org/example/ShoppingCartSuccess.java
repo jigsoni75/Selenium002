@@ -14,24 +14,16 @@ public class ShoppingCartSuccess extends Utils{
     public void ShoppingMessage(){
 
         // assert for ShoppingCart
-        String expectedMessage = "Shopping cart";
+//        String expectedMessage= "Shopping cart";
+//
+//        String actualMessage = driver.findElement(By.xpath("//h1[contains(text (),'Shopping cart')]")).getText();
+//
+//        Assert.assertEquals(actualMessage,expectedMessage, "The product will not added to the cart");
 
-        String actualMessage = driver.findElement(_actualMessage).getText();
 
-        Assert.assertEquals(actualMessage,expectedMessage, "The product will not added to the cart ");
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         String actualMessage1 = driver.findElement(_actualMessage1).getText();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
         String expectedMessage1 = "Build your own computer";
 

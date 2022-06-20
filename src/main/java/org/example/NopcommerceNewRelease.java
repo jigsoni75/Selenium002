@@ -8,19 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NopcommerceNewRelease extends Utils {
-    String title ="Mr patel";
+   private By _enterTitle =By.xpath("//strong [contains (text (),'Mr Patel')]");
 
-    String commentText = LoadProp.properties.getProperty("comment")+ randomDate();
+
 
     public void newRelease(){
         // assert for compare the url
-        String ActualText = "https://demo.nopcommerce.com/nopcommerce-new-release";
-
-        Assert.assertEquals(ActualText , "https://demo.nopcommerce.com/nopcommerce-new-release");
-
+        String actualPageTitle = driver.getCurrentUrl();
+        String expectedPageTitle = "https://demo.nopcommerce.com/nopcommerce-new-release";
+        Assert.assertEquals(actualPageTitle, expectedPageTitle, "Page title is wrong");
         System.out.println("URL matching --> Part executed");
+
+
         //type in the Title
-        sendKeys(By.xpath("//*[@id=\"AddNewComment_CommentTitle\"]"),"Mr Patel");
+        sendKeys(By.xpath("//*[@id=\"AddNewComment_CommentTitle\"]"),"Mr Soni");
         //type the  comment
         sendKeys(By.xpath("//*[@id=\"AddNewComment_CommentText\"]"),"Nope commerce is very useful website");
         //click on new comment button
@@ -35,11 +36,11 @@ public class NopcommerceNewRelease extends Utils {
         for (WebElement e : comments) {
             listOfComments.add(e.getText());
         }
-//        Assert.assertTrue(listOfComments.contains(title));
+//        Assert.assertTrue(listOfComments.contains("mr soni"));
 //        //last comment verification
 //        String lastComment = listOfComments.get(listOfComments.size()-1);
 //        System.out.println(lastComment);
-//        Assert.assertEquals(lastComment,title,"Comment is not in order");
+//        Assert.assertEquals(lastComment,"Mr soni ","Comment is not in order");
 
 
 

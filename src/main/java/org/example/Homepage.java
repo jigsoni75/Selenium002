@@ -77,7 +77,7 @@ public class Homepage extends Utils {
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
-
+            e.printStackTrace();
         }
         //Assert for Only registered users can vote
         String actualMessage4 = driver.findElement(_actualMessage4).getText();
@@ -136,14 +136,17 @@ public class Homepage extends Utils {
 
     }
 
-
-    public void searchStore (){
+    public void searchStore() {
         clickOnElement(By.xpath("//*[@id=\"small-searchterms\"]"));
 
     }
+
+    public void clickOnCategoryLink(String categoryName) {
+        clickOnElement(By.linkText(categoryName));
+
+    }
+
 }
-
-
 
 
 
