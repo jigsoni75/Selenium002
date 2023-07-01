@@ -2,6 +2,7 @@ package org.example;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -30,14 +31,24 @@ public class DriverManager extends Utils {
         if (cloud) {
             System.out.println("Running in cloud");
             //applying conditional loop for different browser options
-            if (browserName.equalsIgnoreCase("Chrome")) {
+            if (browserName.equalsIgnoreCase("Chrome"))
 
+
+
+
+
+            {
+
+                DesiredCapabilities caps = new DesiredCapabilities();
                 caps.setCapability("browserName", "Chrome");
                 caps.setCapability("browserVersion", "latest");
+
                 HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
                 browserstackOptions.put("os", "Windows");
                 browserstackOptions.put("osVersion", "10");
+
                 caps.setCapability("bstack:options", browserstackOptions);
+
 
 
             } else if (browserName.equalsIgnoreCase("firefox")) {
@@ -61,9 +72,10 @@ public class DriverManager extends Utils {
             System.out.println("Running Locally in the computer ........");
 
             if (browserName.equalsIgnoreCase("Chrome")) {
-                System.setProperty("webdriver.chrome.driver", "src/test/java/Drivers/chromedriver.exe");
-                //open chrome
-                driver = new ChromeDriver();
+                System.setProperty("webdriver.chrome.driver","src/test/java/drivers/chromedriver.exe");
+                ChromeOptions Options = new ChromeOptions();
+                Options.addArguments("--remote-allow-origins=*");
+                driver = new ChromeDriver(Options);
             } else if
             (browserName.equalsIgnoreCase("firefox")) {
                 System.setProperty("webdriver.gecko.driver", "src/test/java/Drivers/geckodriver.exe");

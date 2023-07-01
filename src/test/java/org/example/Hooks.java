@@ -5,6 +5,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriverException;
 
 import static org.example.BasePage.driver;
 
@@ -18,12 +19,15 @@ public class Hooks extends Utils {
     }
 
     @After
-    public void tearDown(Scenario scenario){
+    public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
-            final byte[] screenshot = ((TakesScreenshot) driver)
-                    .getScreenshotAs(OutputType.BYTES);
-            String screenshotName = scenario.getName().replaceAll(" ", "_");
-            scenario.attach(screenshot, "image/png", screenshotName); //stick it in the report
+            try {
+                byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                String screenshotName = scenario.getName().replaceAll(" ", "_");
+                scenario.attach(screenshot, "image/png", screenshotName);
+            } catch (WebDriverException e) {
+                System.err.println("Failed to take screenshot: " + e.getMessage());
+            }
         }
         driverManager.closeBrowser();
     }
