@@ -30,6 +30,9 @@ public class RegistrationPage extends Utils {
 
     private By _registerButton = By.id("register-button");
 
+
+
+
     public void UserShouldBeAbleTORegisterSuccessfully() {
 
         //click on gender
